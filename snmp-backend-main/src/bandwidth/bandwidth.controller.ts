@@ -18,9 +18,10 @@ export class BandwidthController {
 
   @Get('teste')
   async getTeste() {
-    const value = Math.floor(Math.random() * 10000) + 5000;
+    const rxBytes = Math.floor(Math.random() * 10000) + 5000;
+    const txBytes = Math.floor(Math.random() * 10000) + 5000;
     const time = new Date().toISOString();
-    return { time, bytes: value };
+    return { time, valores: { rxBytes, txBytes } };
   }
 
   

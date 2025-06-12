@@ -5,7 +5,7 @@ import * as bandwidth from 'net-snmp';
 export class BandwidthService {
   private readonly logger = new Logger(BandwidthService.name);
   private session: bandwidth.Session;
-  private readonly target = '192.168.88.1'; // IP Mikrotik
+  private readonly target = '192.168.18.65'; // IP Mikrotik
   private readonly community = 'public';
   private readonly oidRx = '1.3.6.1.2.1.2.2.1.10.'; // ifInOctets interface 2
   private readonly oidTx = '1.3.6.1.2.1.2.2.1.16.';
