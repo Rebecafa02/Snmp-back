@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { BandwidthService } from './bandwidth.service';
 
-@Controller('/api/bandwidth')
+@Controller('bandwidth')
 export class BandwidthController {
   constructor(private readonly bandwidthService: BandwidthService) {}
 
@@ -10,7 +10,7 @@ export class BandwidthController {
     @Query('rxMbps') rxMbps: string,
     @Query('txMbps') txMbps: string,
   ) {
-    console.log(`rxMbps: ${rxMbps}, txMbps: ${txMbps}`);
+    console.log(`rxPorta: ${rxMbps}, txPorta: ${txMbps}`);
     const values = await this.bandwidthService.getValues(rxMbps, txMbps);
     const time = new Date().toISOString();
     return { time, valores: values};
@@ -18,10 +18,9 @@ export class BandwidthController {
 
   @Get('teste')
   async getTeste() {
-    const rxBytes = Math.floor(Math.random() * 10000) + 5000;
-    const txBytes = Math.floor(Math.random() * 10000) + 5000;
+    const value = Math.floor(Math.random() * 10000) + 5000;
     const time = new Date().toISOString();
-    return { time, valores: { rxBytes, txBytes } };
+    return { time, bytes: value };
   }
 
   
